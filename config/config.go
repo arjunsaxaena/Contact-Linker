@@ -1,7 +1,10 @@
 package config
 
 import (
+	"log"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 type Config struct {
@@ -11,9 +14,14 @@ type Config struct {
 	DBUser     string `json:"db_user"`
 	DBPassword string `json:"db_password"`
 	DBName     string `json:"db_name"`
+	DBSSLMode  string `json:"db_sslmode"`
 }
 
 func LoadConfig() (*Config, error) {
+	if err := godotenv.Load(".env"); err != nil {
+		log.Println("Warning: .env file not found, using system environment variables")
+	}
+
 	config := &Config{
 		Port:       os.Getenv("PORT"),
 		DBHost:     os.Getenv("DB_HOST"),
@@ -21,6 +29,7 @@ func LoadConfig() (*Config, error) {
 		DBUser:     os.Getenv("DB_USER"),
 		DBPassword: os.Getenv("DB_PASSWORD"),
 		DBName:     os.Getenv("DB_NAME"),
+		DBSSLMode:  os.Getenv("DB_SSLMODE"),
 	}
 
 	return config, nil
