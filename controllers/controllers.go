@@ -84,7 +84,6 @@ func IdentifyContact(c *gin.Context) {
 	phoneNumbers := map[string]bool{}
 	secondaryContactIDs := []string{}
 
-	// Add primaryContact's email and phone number to the maps
 	if primaryContact.Email != nil {
 		emails[*primaryContact.Email] = true
 	}
@@ -105,10 +104,6 @@ func IdentifyContact(c *gin.Context) {
 		if contact.PhoneNumber != nil {
 			phoneNumbers[*contact.PhoneNumber] = true
 		}
-	}
-
-	if req.PhoneNumber != nil && !phoneNumbers[*req.PhoneNumber] {
-		phoneNumbers[*req.PhoneNumber] = true
 	}
 
 	if (req.Email != nil && !emails[*req.Email]) || (req.PhoneNumber != nil && !phoneNumbers[*req.PhoneNumber]) {
