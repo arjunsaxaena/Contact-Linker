@@ -1,4 +1,4 @@
-# Moonrider Assignment
+# Contact-Linker
 
 This project is a contact management system that allows users to identify and manage contacts based on email and phone numbers. It uses a PostgreSQL database for storing contact information and provides a REST API for interaction.
 
@@ -14,8 +14,6 @@ This project is a contact management system that allows users to identify and ma
 - **Backend**: Go (Golang)
 - **Database**: PostgreSQL
 - **Framework**: Gin (for REST API)
-- **Environment Management**: `godotenv`
-- **SQL Builder**: `go-sqlbuilder`
 - **Containerization**: Docker
 
 ## Prerequisites
@@ -38,13 +36,13 @@ cd Moonrider-Assignment
 Create a `.env` file in the root directory with the following content:
 
 ```properties
-PORT=8080
-DB_HOST=localhost
-DB_PORT=5432
-DB_USER=postgres
-DB_PASSWORD=secret
-DB_NAME=moonrider
-DB_SSLMODE=disable
+PORT=
+DB_HOST=
+DB_PORT=
+DB_USER=
+DB_PASSWORD=
+DB_NAME=
+DB_SSLMODE=
 ```
 
 ### 3. Run Database Migrations
